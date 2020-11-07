@@ -1,3 +1,3 @@
-# Julia tips
+# Projet Julia
 
 Initiation à Julia
