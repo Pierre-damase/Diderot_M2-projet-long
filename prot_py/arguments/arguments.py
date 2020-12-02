@@ -40,7 +40,7 @@ def arguments():
                           choices=['view', 'rmsd', 'align', 'maps'],
                           help="""L'étude à réaliser: view pour la visualisation avec nglview,
                            rmsd pour la comparaison de deux structures (alignement & rsmd), align
-                           pour l'alignement de deux séquences, et carte pour carte de contact""")
+                           pour l'alignement de deux séquences, et maps pour carte de contact""")
 
     # Arguments optionnels
     optional = parser.add_argument_group('optional', "les arguments optionnels")
