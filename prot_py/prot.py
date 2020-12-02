@@ -10,6 +10,8 @@ Ce programme permet la manipulation de fichier PDB en python:
 
 Usage
 -----
+    Être situé dans le dosier ./Projet-julia
+
     $ python -m prot -i ID -e ARG -a ALIGN
 
    - ID: l'id du fichier.s pdb à étudier
@@ -20,10 +22,10 @@ Usage
 
 import os
 
-from prot.alignment import alignment as ali
-from prot.arguments import arguments as arg
-from prot.files import files as f
-from prot.maps import maps
+from prot_py.alignment import alignment as ali
+from prot_py.arguments import arguments as arg
+from prot_py.files import files as f
+from prot_py.maps import maps
 
 
 def main():

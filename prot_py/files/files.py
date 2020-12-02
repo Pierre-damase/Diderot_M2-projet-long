@@ -37,9 +37,8 @@ def load_pdb(pdb):
     Return
     ------
     struct: tuple
-        tuple d'objets de type tructure
+        tuple d'objets de type structure
     """
-
     parser = PDB.PDBParser()
 
     struct = tuple()
