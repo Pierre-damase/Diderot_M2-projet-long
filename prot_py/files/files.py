@@ -104,8 +104,7 @@ def save_sequences_alignment(alignments, pdb, type_align):
         filout.write("Alignement {} de {} & {}\n\n".format(type_align, pdb[0], pdb[1]))
 
         if type_align == "global":
-            for align in alignments:
-                align_block(align, filout)
+            align_block(alignments, filout)
         else:
             for align in alignments:
                 align_block(align, filout)

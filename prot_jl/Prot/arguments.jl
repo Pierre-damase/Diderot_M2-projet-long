@@ -1,4 +1,6 @@
-# Ce module permet de définir les arguments nécessaires et otpionnels
+#=
+Ce module permet de définir les arguments nécessaires et otpionnels
+=#
 
 using ArgParse
 

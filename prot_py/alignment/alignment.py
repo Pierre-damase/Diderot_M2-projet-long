@@ -2,6 +2,7 @@
 Ce module permet de réaliser l'alignement des séquences & des structures (plus calcul rmsd).
 """
 
+import Bio.Align.substitution_matrices as mat
 import Bio.PDB as PDB
 import Bio.pairwise2 as pairwise
 import Bio.Seq as Seq
@@ -10,7 +11,7 @@ import sys
 
 def structures_alignment(struct):
     """
-    Alignement des structures plus calcul du rmsd.
+    Alignement des structures & calcul du rmsd.
 
     Return
     ------
@@ -51,9 +52,15 @@ def sequences_alignment(struct, type_align):
     """
     Permet de réaliser un alignement deux à deux (pairwise) des séquences.
 
-    Soit alignement global ou des régions.
+    Soit alignement global des deux protéine soit un alignement global des régions.
+
+    Utilisation de globalds:
+      - global: alignement global
+      - d: utilisation de la matrice BLOSUM62 pour les scores de match
+      - s: même open et extend gap pour les deux séquences, -10 & -1 respectivement
     """
     peptides = PDB.PPBuilder()
+    matrix = mat.load("BLOSUM62")
 
     print("Alignement {} des séquences de {} & {}".format(type_align, struct[0].id, struct[1].id))
 
@@ -65,8 +72,7 @@ def sequences_alignment(struct, type_align):
             seq1 += peptide1.get_sequence()
             seq2 += peptide2.get_sequence()
 
-        alignments = pairwise.align.globalxx(seq1, seq2)[:10]
-
+        alignments = pairwise.align.globalds(seq1, seq2, matrix, -10, -1)[0]
     else:
         alignments = []
 
@@ -74,7 +80,7 @@ def sequences_alignment(struct, type_align):
                                       peptides.build_peptides(struct[1])):
             seq1, seq2 = peptide1.get_sequence(), peptide2.get_sequence()
 
-            tmp = pairwise.align.globalxx(seq1, seq2)
+            tmp = pairwise.align.globalds(seq1, seq2, matrix, -10, -1)
             alignments.append(tmp[0])
 
     return alignments
