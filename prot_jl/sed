@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sed -i "s/[0-9A-Z]\{4\}.pdb/$1.pdb/" ./Prot/view.ipynb
