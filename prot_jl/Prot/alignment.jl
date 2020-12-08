@@ -6,8 +6,18 @@ using BioStructures
 using BioAlignments
 
 
-function structure_alignment(structure)
-    # Alignement des structures & calcul du rmsd
+function structures_alignment(structure)
+    #=
+    Alignement des structures & calcul du rmsd
+
+    rms: le rmsd calculé entre les deux structures
+    structure: les coordonnées modifiées du premier élément (structure[1]) calculées à partir de la
+               "Transformation" qui map le premier élément aux deuxième
+    =#
+    superimpose!(structure[1], structure[2], standardselector)
+    rms = rmsd(structure[1], structure[2], standardselector)
+
+    return rms, structure[1]
 end
 
 

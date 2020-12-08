@@ -68,7 +68,7 @@ end
 
 
 function save_sequences_alignment(alignments, scores, type_align, pdb)
-    fichier = "../data/alignments/$(type_align)_alignment-$(pdb[1])_$(pdb[2]).txt"
+    fichier = "../data/alignments/$(type_align)_alignment-$(pdb[1])_$(pdb[2])-julia.txt"
 
     open(fichier, "w") do filout
         write(filout, "Alignement $type_align de $(pdb[1]) & $(pdb[2])\n\n")
@@ -82,6 +82,12 @@ function save_sequences_alignment(alignments, scores, type_align, pdb)
         end
     end
 
+end
+
+
+function save_structures_alignment(aligned_struct, pdb)
+    file = "../data/pdb/$(pdb[1])_aligned_to_$(pdb[2])-julia.pdb"
+    writepdb(file, aligned_struct)
 end
 
 

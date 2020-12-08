@@ -25,7 +25,6 @@ using .Prot
 
 
 function main()
-    # https://biojulia.net/BioStructures.jl/stable/documentation/
     # http://thegrantlab.org/bio3d/articles/online/intro_vignette/Bio3D_introduction.html
     args = Prot.arguments()
 
@@ -33,13 +32,14 @@ function main()
     Prot.fetch_pdb(args["id"][1])
 
     if args["etude"] == "view"
-        for id in args["id"][1]
-            run(`./sed $id`)
-            run(`jupyter lab ./Prot/view.ipynb`)
-        end
+        id = args["id"][1][1]
+        cmd = `sed -i "s/[0-9A-Z]\{4\}.pdb/$(id).pdb/" ./Prot/view.ipynb`
+        run(cmd)
+        run(`jupyter lab ./Prot/view.ipynb`)
 
     elseif args["etude"] == "maps"
         structure = Prot.load_pdb(args["id"][1])
+        Prot.compute_contact_map(structure[1], args["id"][1][1], args["cutoff"])
 
     else
         # Vérifier que 2 protéines ont été renseignées
@@ -51,6 +51,12 @@ function main()
         if args["etude"] == "align"
             align, scores = Prot.sequences_alignment(structure, args["align"], args["id"][1])
             Prot.save_sequences_alignment(align, scores, args["align"], args["id"][1])
+
+        else
+            rms, aligned_struct = Prot.structures_alignment(structure)
+            Prot.save_structures_alignment(aligned_struct, args["id"][1])
+
+            println("Le rmsd vaut $(rms)")
         end
 
     end
