@@ -98,7 +98,7 @@ def save_sequences_alignment(alignments, pdb, type_align):
     type_align: str
         alignement global ou par régions
     """
-    fichier = "./data/alignments/{}_alignment-{}_{}.txt".format(type_align, pdb[0], pdb[1])
+    fichier = "./data/alignments/{}_alignment-{}_{}-python.txt".format(type_align, pdb[0], pdb[1])
 
     with open(fichier, "w") as filout:
         filout.write("Alignement {} de {} & {}\n\n".format(type_align, pdb[0], pdb[1]))
@@ -116,7 +116,7 @@ def save_structures_alignment(aligned_struct, pdb):
     """
     io = PDB.PDBIO()
     io.set_structure(aligned_struct)
-    io.save("./data/pdb/{}_aligned_to_{}.pdb".format(pdb[0], pdb[1]))
+    io.save("./data/pdb/{}_aligned_to_{}-python.pdb".format(pdb[0], pdb[1]))
 
 
 if __name__ == "__main__":

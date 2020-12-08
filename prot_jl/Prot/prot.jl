@@ -1,7 +1,8 @@
 module Prot
 
+include("alignment.jl")
 include("arguments.jl")
 include("files.jl")
-include("alignment.jl")
+include("maps.jl")
 
 end

@@ -43,9 +43,9 @@ def structures_alignment(struct):
 
     super_imposer = PDB.Superimposer()  # Attention, listes de même taille
     super_imposer.set_atoms(fixed, moving)  # détermine les matrices de rotation/translation
-    super_imposer.apply(struct[1].get_atoms())  # applique les matrices à la molécule
+    super_imposer.apply(struct[0].get_atoms())  # applique les matrices à la molécule
 
-    return super_imposer.rms, struct[1]
+    return super_imposer.rms, struct[0]
 
 
 def sequences_alignment(struct, type_align):
