@@ -32,7 +32,7 @@ def compute_distance_matrice(atoms):
 
 def compute_contact_map(struct, pdb, cutoff):
     """
-    Détermine la carte de contacte pour une protéine donnée.
+    Détermine la carte de contacte pour une protéine donnée (ici pdb).
     """
     amino_acid = [
         'ALA', 'ARG', 'ASN', 'ASP', 'CYS', 'GLU', 'GLN', 'GLY', 'HIS', 'ILE',
@@ -50,20 +50,22 @@ def compute_contact_map(struct, pdb, cutoff):
 
     contact_map = dist_mat < cutoff  # transformation de la matrice de distance en carte de contact
 
-    plot_contact_map(contact_map, pdb)
+    plot_contact_map(contact_map, pdb, cutoff)
 
 
-def plot_contact_map(contact_map, pdb):
+def plot_contact_map(contact_map, pdb, cutoff):
     """
-    Génère le graphe d'une carte de contact donné.
-
-    https://stackoverflow.com/questions/25469950/matplot-how-to-plot-true-false-or-active-deactive-data
+    Génère le graphe d'une carte de contacts donnée.
     """
-    fig = plt.figure()
-    ax = fig.add_subplot(111)
-    ax.imshow(contact_map, aspect="auto", cmap=plt.cm.gray, interpolation='nearest')
+    fig, axs = plt.subplots(1, 1, figsize=(12, 10), constrained_layout=True)
+    axs.imshow(contact_map, aspect="auto", cmap=plt.cm.gray, interpolation='nearest')
 
-    fig.savefig("./data/contact_maps/{}".format(pdb))
+    title = "Carte de contacts de la protéine {} pour un cutoff de {}A".format(pdb, cutoff)
+    fig.suptitle(title, fontsize="xx-large")
+
+    name = "./data/contact_maps/{}_{}A-python.png".format(pdb, cutoff)
+    plt.savefig(name)
+    plt.clf()
 
 
 if __name__ == "__main__":
