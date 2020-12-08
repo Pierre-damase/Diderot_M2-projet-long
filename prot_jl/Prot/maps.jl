@@ -11,9 +11,11 @@ function compute_contact_map(structure, pdb, cutoff)
     =#
     contact_map = ContactMap(collectatoms(structure, calphaselector), cutoff)
 
-    open("../data/contact_maps/$(pdb)_$(cutoff)A-julia.png", "w") do filout
+    open("../data/contact_maps/$(pdb)_$(cutoff)A-julia", "w") do filout
         showcontactmap(filout, contact_map)
     end
+
+    # Problèmes avec le package Plots - crash de Julia
 end
 
 
