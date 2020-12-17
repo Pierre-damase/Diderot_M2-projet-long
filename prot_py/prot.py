@@ -18,6 +18,8 @@ Usage
    - ARG: l'étude à réaliser, view pour la visualisation, rmsd pour la comparaison de structures
           (rmsd), align pour l'alignement de séquences et maps pour carte de contact
    - ALIGN (optionnel): region pour un alignement des régions ou global pour un alignement global
+
+   AJOUT mode normaux
 """
 
 import os
@@ -37,6 +39,7 @@ def main():
         for prot in args.id:
             os.system("nglview ./data/pdb/{}.pdb".format(prot))  # Visualisation avec nglview
             os.system("rm tmpnb_ngl.ipynb")  # Suppression du notebook créé
+            #os.system(f"sed -i 's/[0-9A-Z]\{4\}.pdb/prot.pdb/' ./prot_py/view/view.ipynb")
 
     elif args.etude == "maps":
         struct = f.load_pdb(args.id)
