@@ -18,10 +18,13 @@ Usage
    - ARG: l'étude à réaliser, view pour la visualisation, rmsd pour la comparaison de structures
           (rmsd), align pour l'alignement de séquences et maps pour carte de contact
    - ALIGN (optionnel): region pour un alignement des régions ou global pour un alignement global
+
+   AJOUT mode normaux
 =#
 
 include("Prot/prot.jl")
 using .Prot
+
 
 
 function main()
