@@ -70,6 +70,8 @@ Pkg.add("Bio3DView")
 
 Les différentes méthodes mise en place ont été codées dans le module **Prot**.
 
+Il faut être situé dans le dossier ./Projet-julia/Code
+
 1. Exemple intéractif
 
 ```
@@ -78,10 +80,8 @@ jupyter lab prot-jl.ipynb
 
 2. Exécution via le script main.jl
 
-Il faut être situé dans le dossier ./Projet-julia/Code
-
 ```
-julia main.jl ID ARG ALIGN CUTOFF
+julia main.jl -i ID -e ARG -a ALIGN -c CUTOFF
 ```
 
   - Arguments nécessaires
@@ -99,6 +99,8 @@ julia main.jl ID ARG ALIGN CUTOFF
 
 Les différentes méthodes mise en place ont été codées dans le module **prot_py**.
 
+Il faut être situé dans le dossier ./Projet-julia/Code
+
 1. Exemple intéractif
 
 ```
@@ -107,10 +109,10 @@ jupyter lab prot-py.ipynb
 
 2. Exécution via le module prot_py
 
-Il faut être situé dans le dossier ./Projet-julia/Code (-m permet d'éxécuter prot_py en tant que module python)
+L'instruction -m permet d'éxécuter prot_py en tant que module python.
 
 ```
-python -m prot_py ID ARG ALIGN CUTOFF
+python -m prot_py -i ID -e ARG -a ALIGN -c CUTOFF
 ```
 
   - Arguments nécessaires
@@ -121,7 +123,7 @@ python -m prot_py ID ARG ALIGN CUTOFF
   - Arguments facultatifs
   
     - **ALIGN**: **global** pour un alignement global des protéines (défaut) & **region** pour un alignement global des régions
-    - **CUTOFF**: le cutoff de la carte de contacts - entre 6 et 12A (vaut 1à par défaut)
+    - **CUTOFF**: le cutoff de la carte de contacts - entre 6 et 12A (vaut 10 par défaut)
 
 ## R
 

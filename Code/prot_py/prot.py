@@ -12,12 +12,13 @@ Usage
 -----
     Être situé dans le dosier ./Projet-julia
 
-    $ python -m prot -i ID -e ARG -a ALIGN
+    $ python -m prot -i ID -e ARG -a ALIGN -c CUTOFF
 
    - ID: l'id du fichier.s pdb à étudier
    - ARG: l'étude à réaliser, view pour la visualisation, rmsd pour la comparaison de structures
           (rmsd), align pour l'alignement de séquences et maps pour carte de contact
    - ALIGN (optionnel): region pour un alignement des régions ou global pour un alignement global
+   - CUTOFF (optionnel): le cutoff de la carte de contacts - entre 6 et 12A (vaut 10 par défaut)
 """
 
 import os
