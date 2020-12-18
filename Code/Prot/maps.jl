@@ -15,8 +15,8 @@ function compute_contact_map(structure, pdb, cutoff)
 end
 
 
-function save_contact_map(contact_map)
-    open("../data/contact_maps/$(pdb)_$(cutoff)A-julia", "w") do filout
+function save_contact_map(contact_map, pdb, cutoff)
+    open("./data/contact_maps/$(pdb)_$(cutoff)A-julia", "w") do filout
         showcontactmap(filout, contact_map)
     end
 end

@@ -10,25 +10,22 @@ Ce programme permet la manipulation de fichier PDB en julia:
 
 Usage
 -----
-   Être situé dans le dossier ./Projet-julia/prot_jl
+   Être situé dans le dossier ./Projet-julia/Code
 
-   $ julia main.jl
+   $ julia main.jl -i ID -e ARG -a ALIGN -c CUTOFF
 
    - ID: l'id du fichier.s pdb à étudier
    - ARG: l'étude à réaliser, view pour la visualisation, rmsd pour la comparaison de structures
           (rmsd), align pour l'alignement de séquences et maps pour carte de contact
    - ALIGN (optionnel): region pour un alignement des régions ou global pour un alignement global
-
-   AJOUT mode normaux
+   - CUTOFF (optionnel): le cutoff de la carte de contacts - entre 6 et 12A (vaut 10 par défaut)
 =#
 
-include("Prot_jl/prot.jl")
-using .Prot_jl as Prot
-
+include("Prot/prot.jl")
+using .Prot
 
 
 function main()
-    # http://thegrantlab.org/bio3d/articles/online/intro_vignette/Bio3D_introduction.html
     args = Prot.arguments()
 
     length(args["id"][1]) > 2 && error("Veuillez renseigner 1 ou 2 fichier.s pdb")
@@ -44,7 +41,7 @@ function main()
         structure = Prot.load_pdb(args["id"][1])
         contact_map = Prot.compute_contact_map(structure[1], args["id"][1][1], args["cutoff"])
 
-        Prot.save_contact_map(contact_map)
+        Prot.save_contact_map(contact_map, args["id"][1][1], args["cutoff"])
 
     else
         # Vérifier que 2 protéines ont été renseignées
