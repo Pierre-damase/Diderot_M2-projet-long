@@ -92,7 +92,7 @@ julia main.jl -i ID -e ARG -a ALIGN -c CUTOFF
   - Arguments facultatifs
   
     - **ALIGN**: **global** pour un alignement global des protéines (défaut) & **region** pour un alignement global des régions
-    - **CUTOFF**: le cutoff de la carte de contacts - entre 6 et 12A (vaut 1à par défaut)
+    - **CUTOFF**: le cutoff de la carte de contacts - entre 6 et 12A (vaut 10A par défaut)
 
 ## Python
 
@@ -123,7 +123,7 @@ python -m prot_py -i ID -e ARG -a ALIGN -c CUTOFF
   - Arguments facultatifs
   
     - **ALIGN**: **global** pour un alignement global des protéines (défaut) & **region** pour un alignement global des régions
-    - **CUTOFF**: le cutoff de la carte de contacts - entre 6 et 12A (vaut 10 par défaut)
+    - **CUTOFF**: le cutoff de la carte de contacts - entre 6 et 12A (vaut 10A par défaut)
 
 ## R
 
