@@ -64,6 +64,8 @@ Pkg.add("ArgParse")
 Pkg.add("BioAlignments")
 Pkg.add("BioStructures")
 Pkg.add("Bio3DView")
+Pkg.add("BenchmarkTools")
+Pkg.add("Suppressor")
 ```
 
 ## Julia
