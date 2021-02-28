@@ -54,7 +54,7 @@ conda activate julia
 
 4. Set up de Julia
 
-Pour l'utilisation du kernel Julia avec jupyter lab et l'installation des différents packages veuillez exécuter les lignes de commande suivante:
+Pour l'utilisation du kernel Julia avec jupyter lab et l'installation des différents packages veuillez exécuter les lignes de commande suivante dans un terminal:
 
 ```
 julia
