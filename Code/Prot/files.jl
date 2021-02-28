@@ -18,12 +18,14 @@ function fetch_pdb(pdb)
 end
 
 
-function load_pdb(pdb)
+function load_pdb(pdb, verbose=true)
     structure = []
 
     for id in pdb
         append!(structure, read("./data/pdb/$(id).pdb", PDB))
-        print("\nStructure $(id) chargée\n")
+        if verbose
+            print("\nStructure $(id) chargée\n")
+        end
     end
     return structure
 end

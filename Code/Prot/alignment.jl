@@ -4,9 +4,10 @@ Ce module permet de réaliser l'alignement des séquences & des structures (plus
 
 using BioStructures
 using BioAlignments
+using Suppressor
 
 
-function structures_alignment(structure)
+function structures_alignment(structure, verbose=true)
     #=
     Alignement des structures & calcul du rmsd
 
@@ -14,14 +15,21 @@ function structures_alignment(structure)
     structure: les coordonnées modifiées du premier élément (structure[1]) calculées à partir de la
                "Transformation" qui map le premier élément aux deuxième
     =#
-    superimpose!(structure[1], structure[2], standardselector)
-    rms = rmsd(structure[1], structure[2], standardselector)
+    if verbose
+        superimpose!(structure[1], structure[2], standardselector)
+        rms = rmsd(structure[1], structure[2], standardselector)
+    else
+        @suppress begin
+            superimpose!(structure[1], structure[2], standardselector)
+            rms = rmsd(structure[1], structure[2], standardselector)
+        end
+    end
 
     return rms, structure[1]
 end
 
 
-function sequences_alignment(structure, type_align, pdb)
+function sequences_alignment(structure, type_align, pdb, verbose=true)
     #=
     Alignement deux à deux des séquences.
 
@@ -30,7 +38,9 @@ function sequences_alignment(structure, type_align, pdb)
       - Utilisation de la matrice BLOSUM62 pour les scores de match.
       - Même open et extend gap pour les deux séquences, -10 & -1 respectivement
     =#
-    println("Alignement $(type_align) des séquences de $(pdb[1]) et  $(pdb[2])")
+    if verbose
+        println("Alignement $(type_align) des séquences de $(pdb[1]) et  $(pdb[2])")
+    end
 
     score_model = AffineGapScoreModel(BLOSUM62, gap_open=-10, gap_extend=-1)
 
