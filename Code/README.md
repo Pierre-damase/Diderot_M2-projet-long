@@ -32,7 +32,7 @@ Ce programme contient les différents jupyter notebook et programme mis en place
 
 ***
 
-* `data`:
+**data**
 
   * `alignements`: sauvegarde des alignements de séquences au format txt avec respect du format fasta, i.e. 80 caractères maximum par ligne 
   * `contact_maps`: sauvegarde des cartes de contacts au format .png (python) ou .txt (Julia)
