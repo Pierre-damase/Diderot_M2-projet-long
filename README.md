@@ -2,6 +2,10 @@
 
 Ce projet est une initiation à Julia. Il a pour but de réaliser l'analyse des structures des protéines avec Julia et de comparer avec ce qui ce fait en Python. Quelques exemples d'application ont été mis en place pour l'hémoglobine humaine (1A01) & bovine (2QSP) tels que la comparaison de séquences, de structures, etc.
 
+## Cheat sheet
+
+Le jupyter notebook `julia-cheat-sheet.ipynb` est un cheat sheet basé sur le livre [**Julia 1.0 Programming**](https://github.com/Pierre-damase/Projet-julia/blob/master/Doc/Julia1.0.pdf). Il présente les particularités de syntaxes de Julia ainsi que des comparaison de code entre Julia et python.
+
 ## Analyses
 
 Les programmes mis en place (Julia, Python) permettent de réaliser les analyses suivantes:
