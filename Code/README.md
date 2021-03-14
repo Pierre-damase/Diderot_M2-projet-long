@@ -17,6 +17,8 @@ Ce programme contient les différents jupyter notebook et programme mis en place
 
 ***
 
+**Python**
+
 * `prot_py`: module qui contient l'ensemble des méthodes mises en place en python
 
   * *cf*. la section Python de https://github.com/Pierre-damase/Projet-julia/blob/master/README.md pour l'éxécution de ce module.
