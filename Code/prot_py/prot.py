@@ -23,7 +23,6 @@ Usage
 
 import os
 
-
 from prot_py.alignment import alignment as ali
 from prot_py.arguments import arguments as arg
 from prot_py.files import files as f

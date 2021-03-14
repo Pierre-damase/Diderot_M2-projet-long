@@ -25,7 +25,7 @@ def fetch_pdb(pdb):
             print("Structure {} téléchargée\n".format(id))
 
 
-def load_pdb(pdb):
+def load_pdb(pdb, path="./data/pdb/"):
     """
     Charge à l'aide du module Bio.PDB les structures à analyser.
 
@@ -43,8 +43,8 @@ def load_pdb(pdb):
 
     struct = tuple()
     for id in pdb:
-        struct += (parser.get_structure(f"{id}", "./data/pdb/{}.pdb".format(id)),)
-        print("\nStructure {} chargée\n".format(id))
+        struct += (parser.get_structure(f"{id}", "{}{}.pdb".format(path, id)),)
+        print("Structure {} chargée".format(id))
 
     return struct
 
