@@ -1,10 +1,10 @@
 # Projet Julia
 
-Ce projet est une initiation à Julia. Il a pour but de réaliser l'analyse des structures des protéines avec Julia et de comparer avec ce qui ce fait en Python et R. Quelques exemples d'application ont été mis en place pour l'hémoglobine humaine (1A01) & bovine (2QSP) tels que la comparaison de séquences, de structures, etc. Un assemblage de protéine de plus de 11 000 résidus (1HTQ) a également été utilisé pour évaluer (benchmark) les performances des différents langages.
+Ce projet est une initiation à Julia. Il a pour but de réaliser l'analyse des structures des protéines avec Julia et de comparer avec ce qui ce fait en Python. Quelques exemples d'application ont été mis en place pour l'hémoglobine humaine (1A01) & bovine (2QSP) tels que la comparaison de séquences, de structures, etc.
 
 ## Analyses
 
-Les programmes mis en place (Julia, Python, ou R) permettent de réaliser les analyses suivantes:
+Les programmes mis en place (Julia, Python) permettent de réaliser les analyses suivantes:
 
 - Lecture de fichier .pdb
 - Visualisation de structures
@@ -30,12 +30,6 @@ sudo apt install julia
 
 ```
 https://github.com/Pierre-damase/Projet-julia.git
-```
-
-> Lien SSH
-
-```
-git@github.com:Pierre-damase/Projet-julia.git
 ```
 
 2. Initialiser l'environnement conda à partir du fichier julia.yml
@@ -64,7 +58,7 @@ Pkg.add("ArgParse")
 Pkg.add("BioAlignments")
 Pkg.add("BioStructures")
 Pkg.add("Bio3DView")
-Pkg.add("BenchmarkTools")
+Pkg.add("NaturalSort")
 Pkg.add("Suppressor")
 ```
 
@@ -126,8 +120,6 @@ python -m prot_py -i ID -e ARG -a ALIGN -c CUTOFF
   
     - **ALIGN**: **global** pour un alignement global des protéines (défaut) & **region** pour un alignement global des régions
     - **CUTOFF**: le cutoff de la carte de contacts - entre 6 et 12A (vaut 10A par défaut)
-
-## R
 
 ## Auteur
 
