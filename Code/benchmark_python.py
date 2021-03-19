@@ -1,5 +1,5 @@
 """
-Ce proramme permet de benchmark les différentes méthodes mise en place dans le module prot_py.
+Ce programme permet de benchmark les différentes méthodes mise en place dans le module prot_py.
 """
 
 import os
