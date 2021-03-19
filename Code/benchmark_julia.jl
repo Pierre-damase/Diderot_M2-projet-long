@@ -1,5 +1,5 @@
 #=
-Ce proramme permet de benchmark les différentes méthodes mise en place dans le module Prot. 
+Ce programme permet de benchmark les différentes méthodes mise en place dans le module Prot. 
 =#
 
 include("Prot/prot.jl")
